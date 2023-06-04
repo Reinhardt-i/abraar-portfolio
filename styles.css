@@ -1,0 +1,131 @@
+/* Reset Styles */
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    background: linear-gradient(to right, #f6f6f6, #ffffff);
+    color: #333;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-menu li {
+    margin-left: 20px;
+  }
+  
+  .nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu li a:hover {
+    color: #aaa;
+  }
+  
+  /* Mobile Menu Styles */
+  
+  .toggle-menu {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu-icon {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-icon:before,
+  .menu-icon:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-icon:before {
+    transform: translateY(-6px);
+  }
+  
+  .menu-icon:after {
+    transform: translateY(6px);
+  }
+  
+  .open .menu-icon {
+    transform: rotate(45deg);
+  }
+  
+  .open .menu-icon:before {
+    transform: rotate(90deg) translate(4px, 4px);
+  }
+  
+  .open .menu-icon:after {
+    transform: rotate(90deg) translate(4px, -4px);
+  }
+  
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #333;
+    transform: translateX(-200px);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+  
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .mobile-menu ul li {
+    margin-bottom: 10px;
+  }
+  
+  .mobile-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
