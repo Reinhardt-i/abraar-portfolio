@@ -32,13 +32,28 @@ projectItems.forEach(item => {
 // Animate elements on scroll
 const animateOnScroll = () => {
     const scrollElements = document.querySelectorAll('.scroll-animation');
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelectorAll('.nav-menu li a');
 
     scrollElements.forEach(element => {
         if (isElementInViewport(element)) {
             element.classList.add('animate');
         }
     });
+
+    if (isElementInViewport(document.getElementById('header'))) {
+        menuIcon.classList.remove('animate');
+        navLinks.forEach(link => link.classList.remove('animate'));
+    } else {
+        menuIcon.classList.add('animate');
+        navLinks.forEach(link => link.classList.add('animate'));
+    }
 };
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+
 
 const isElementInViewport = (element) => {
     const rect = element.getBoundingClientRect();
