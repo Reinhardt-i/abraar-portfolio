@@ -1,69 +1,91 @@
-// Add smooth scrolling to anchor links
+
+menuIcon.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});
+
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+      e.preventDefault();
+      
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-});
+  });
 
-// Toggle mobile menu
-const toggleMenu = document.querySelector('.toggle-menu');
-const mobileMenu = document.querySelector('.mobile-menu');
+  
+  // Scroll Reveal Animation
+const scrollRevealItems = document.querySelectorAll('.scroll-reveal');
 
-toggleMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-});
+const scrollRevealOptions = {
+  threshold: 0.5, // Adjust this value to control when the animation triggers
+};
 
-// Show/hide project details
-const projectItems = document.querySelectorAll('.project-item');
-
-projectItems.forEach(item => {
-    const projectDetails = item.querySelector('.project-details');
-    const viewDetailsBtn = item.querySelector('.view-details-btn');
-
-    viewDetailsBtn.addEventListener('click', () => {
-        projectDetails.classList.toggle('open');
-    });
-});
-
-// Animate elements on scroll
-const animateOnScroll = () => {
-    const scrollElements = document.querySelectorAll('.scroll-animation');
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelectorAll('.nav-menu li a');
-
-    scrollElements.forEach(element => {
-        if (isElementInViewport(element)) {
-            element.classList.add('animate');
-        }
-    });
-
-    if (isElementInViewport(document.getElementById('header'))) {
-        menuIcon.classList.remove('animate');
-        navLinks.forEach(link => link.classList.remove('animate'));
-    } else {
-        menuIcon.classList.add('animate');
-        navLinks.forEach(link => link.classList.add('animate'));
+const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      observer.unobserve(entry.target);
     }
-};
+  });
+}, scrollRevealOptions);
 
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
+scrollRevealItems.forEach(item => {
+  scrollRevealObserver.observe(item);
+});
+
+
+// Mobile menu toggle
+const menuIcon = document.querySelector('.menu-icon');
+const navMenu = document.querySelector('.nav-menu');
+
+menuIcon.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// Close mobile menu when a menu item is clicked
+const menuItems = document.querySelectorAll('.nav-menu a');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+});
 
 
 
-const isElementInViewport = (element) => {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-};
 
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
+// Fetch and display GitHub repositories
+const repoCardsContainer = document.getElementById('repo-cards');
+
+fetch('https://api.github.com/users/Reinhardt-i/repos')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(repo => {
+      const repoCard = document.createElement('div');
+      repoCard.classList.add('repo-card');
+
+      const repoName = document.createElement('h3');
+      repoName.innerText = repo.name;
+
+      const repoDescription = document.createElement('p');
+      repoDescription.innerText = repo.description;
+
+      const repoLanguage = document.createElement('p');
+      repoLanguage.innerText = `Language: ${repo.language}`;
+
+      const repoLink = document.createElement('a');
+      repoLink.href = repo.html_url;
+      repoLink.innerText = 'View on GitHub';
+
+      repoCard.appendChild(repoName);
+      repoCard.appendChild(repoDescription);
+      repoCard.appendChild(repoLanguage);
+      repoCard.appendChild(repoLink);
+
+      repoCardsContainer.appendChild(repoCard);
+    });
+  })
+  .catch(error => console.log(error));

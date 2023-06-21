@@ -1,166 +1,158 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #FDFDFD;
+  color: #2C2C2C;
   line-height: 1.5;
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: #9C2C3D;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header h1 {
-  margin: 0;
+.logo img {
+  width: 50px;
 }
 
-header .logo img {
-  max-width: 100px;
-}
-
-.toggle-menu {
+.menu-icon {
   display: none;
   cursor: pointer;
-  padding: 10px;
 }
 
-.toggle-menu .menu-icon {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-  margin-bottom: 4px;
+.nav-menu ul {
+  list-style: none;
+  display: flex;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline-block;
+.nav-menu ul li {
   margin-right: 20px;
 }
 
-nav ul li a {
-  color: #fff;
+.nav-menu ul li a {
+  color: #F3F3F3;
   text-decoration: none;
 }
 
-.mobile-menu {
-  display: none;
+section {
+  padding: 40px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.project-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.project-item img {
+  width: 400px;
+}
+
+.project-separator {
+  width: 40px;
+}
+
+.tech-stacks-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.tech-stacks-list li {
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.favorites-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.favorite-item {
+  width: 48%;
   padding: 20px;
-  background-color: #333;
-  color: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
 }
 
-.mobile-menu ul li {
-  display: block;
+.contact-details p {
   margin-bottom: 10px;
-}
-
-#introduction {
-  text-align: center;
-  padding: 60px 0;
-}
-
-#introduction h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-#about-me {
-  padding: 40px 0;
-}
-
-#about-me h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-#projects {
-  padding: 40px 0;
-}
-
-#projects h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.project-item {
-  margin-bottom: 20px;
-}
-
-.project-item h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.view-details-btn {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.project-details {
-  display: none;
-  padding: 10px 0;
-}
-
-#my-writings {
-  padding: 40px 0;
-}
-
-#my-writings h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #2C2C2C;
+  color: #F3F3F3;
   padding: 20px;
   text-align: center;
 }
 
-/* Responsive Styles */
-
-@media only screen and (max-width: 768px) {
-  .container {
-      padding: 0 10px;
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
   }
 
-  header .toggle-menu {
-      display: block;
+  .logo img {
+    width: 40px;
   }
 
-  nav ul li {
-      display: block;
-      margin-bottom: 10px;
+  .menu-icon {
+    display: block;
   }
 
-  .mobile-menu {
-      display: none;
+  .nav-menu ul {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: #9C2C3D;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.5s ease;
   }
 
-  .show-mobile-menu {
-      display: block;
+  .nav-menu ul li {
+    margin: 10px 0;
   }
 
-  #introduction h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+  .nav-menu ul li a {
+    color: #F3F3F3;
+    font-size: 20px;
+  }
+
+  .nav-menu ul.show {
+    left: 0;
   }
 }
-
