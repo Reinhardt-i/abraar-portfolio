@@ -1,231 +1,166 @@
-/* Reset Styles */
-body, h1, h2, h3, h4, h5, h6, p, ul, li, button {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
-  background-color: #a1a1a1;
-  color: #333;
 }
 
-/* Header Styles */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 header {
   background-color: #333;
   color: #fff;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.logo {
-  font-size: 24px;
+header h1 {
+  margin: 0;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
+header .logo img {
+  max-width: 100px;
 }
 
-.nav-menu li {
-  margin-left: 20px;
-}
-
-.nav-menu li a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-menu li a:hover {
-  color: #aaa;
-}
-
-/* Mobile Menu Styles */
 .toggle-menu {
+  display: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  padding: 10px;
 }
 
-.menu-icon {
+.toggle-menu .menu-icon {
   display: block;
   width: 20px;
   height: 2px;
   background-color: #fff;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
+  margin-bottom: 4px;
 }
 
-.menu-icon:before,
-.menu-icon:after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-  transition: transform 0.3s ease-in-out;
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.menu-icon:before {
-  transform: translateY(-6px);
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.menu-icon:after {
-  transform: translateY(6px);
-}
-
-.open .menu-icon {
-  transform: rotate(45deg);
-}
-
-.open .menu-icon:before {
-  transform: rotate(90deg) translate(4px, 4px);
-}
-
-.open .menu-icon:after {
-  transform: rotate(90deg) translate(4px, -4px);
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 200px;
-  background-color: #333;
-  transform: translateX(-200px);
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-
-.mobile-menu.open {
-  transform: translateX(0);
-}
-
-.mobile-menu ul {
-  list-style: none;
+  display: none;
   padding: 20px;
-  margin: 0;
+  background-color: #333;
+  color: #fff;
 }
 
 .mobile-menu ul li {
+  display: block;
   margin-bottom: 10px;
 }
 
-.mobile-menu ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.menu-icon.animate,
-.nav-menu li a {
-  transition: color 0.3s ease;
-}
-
-.menu-icon.animate:before,
-.menu-icon.animate:after {
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-icon.animate:before {
-  transform: rotate(45deg) translateY(6px);
-}
-
-.menu-icon.animate:after {
-  transform: rotate(-45deg) translateY(-6px);
-}
-
-.nav-menu li a:hover {
-  color: #aaa;
-  transform: scale(1.1);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-      transform: translateX(-100%);
-  }
-  to {
-      transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-      transform: translateX(100%);
-  }
-  to {
-      transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-      transform: scale(0);
-  }
-  to {
-      transform: scale(1);
-  }
-}
-
-/* Header Styles */
-/* Add animation to the menu icon */
-.menu-icon.animate {
-  transform: rotate(45deg);
-}
-
-.menu-icon.animate:before {
-  transform: rotate(90deg) translate(4px, 4px);
-}
-
-.menu-icon.animate:after {
-  transform: rotate(90deg) translate(4px, -4px);
-}
-
-.nav-menu li a:hover {
-  color: #aaa;
-  transform: scale(1.1);
-}
-
-/* Introduction Section Styles */
 #introduction {
-  animation: fadeIn 1s ease;
+  text-align: center;
+  padding: 60px 0;
 }
 
-/* About Me Section Styles */
+#introduction h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
 #about-me {
-  animation: slideInFromLeft 1s ease;
+  padding: 40px 0;
 }
 
-/* Contact Section Styles */
-#contact {
-  animation: slideInFromRight 1s ease;
+#about-me h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-/* Animations on Scroll */
-.scroll-animation {
-  opacity: 0;
-  animation: fadeIn 1s ease;
+#projects {
+  padding: 40px 0;
 }
 
-.animate {
-  animation: scaleIn 0.5s ease;
+#projects h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+.project-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.view-details-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.project-details {
+  display: none;
+  padding: 10px 0;
+}
+
+#my-writings {
+  padding: 40px 0;
+}
+
+#my-writings h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 768px) {
+  .container {
+      padding: 0 10px;
+  }
+
+  header .toggle-menu {
+      display: block;
+  }
+
+  nav ul li {
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .mobile-menu {
+      display: none;
+  }
+
+  .show-mobile-menu {
+      display: block;
+  }
+
+  #introduction h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+  }
+}
+
