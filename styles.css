@@ -200,7 +200,7 @@ footer {
 .about-me-section {
   display: flex;
   align-items: center;
-  background-color: rgba(173, 216, 230, 0.3); /* Very light blue */
+  background-color: rgba(146, 193, 208, 0.3); /* Very light blue */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -220,16 +220,6 @@ footer {
 }
 
 /* Projects Section */
-#projects {
-  background-color: #ddffdd; /* Lighter green */
-  padding: 50px;
-}
-
-.projects-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
 .project {
   width: calc(50% - 20px);
@@ -252,6 +242,19 @@ footer {
   color: #333333; /* Black */
 }
 
+.project img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.projects-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 
 .education-section {
   background-color: rgba(230, 230, 250, 0.3); /* Extremely light purple */
@@ -268,3 +271,13 @@ footer {
   padding: 20px;
 }
 
+
+
+.repo-container,
+.contact-box {
+  background-color: rgba(0, 0, 0, 0.1); /* Background tint */
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
