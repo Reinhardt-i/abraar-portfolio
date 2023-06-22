@@ -1,42 +1,3 @@
-
-menuIcon.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
-
-
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  
-  // Scroll Reveal Animation
-const scrollRevealItems = document.querySelectorAll('.scroll-reveal');
-
-const scrollRevealOptions = {
-  threshold: 0.5, // Adjust this value to control when the animation triggers
-};
-
-const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('reveal');
-      observer.unobserve(entry.target);
-    }
-  });
-}, scrollRevealOptions);
-
-scrollRevealItems.forEach(item => {
-  scrollRevealObserver.observe(item);
-});
-
-
 // Mobile menu toggle
 const menuIcon = document.querySelector('.menu-icon');
 const navMenu = document.querySelector('.nav-menu');
@@ -54,8 +15,39 @@ menuItems.forEach(item => {
   });
 });
 
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
 
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
+// Scroll Reveal Animation
+const scrollRevealItems = document.querySelectorAll('.scroll-reveal');
+
+const scrollRevealOptions = {
+  threshold: 0.5 // Adjust this value to control when the animation triggers
+};
+
+const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      observer.unobserve(entry.target);
+    }
+  });
+}, scrollRevealOptions);
+
+scrollRevealItems.forEach(item => {
+  scrollRevealObserver.observe(item);
+});
 
 // Fetch and display GitHub repositories
 const repoCardsContainer = document.getElementById('repo-cards');
@@ -63,7 +55,9 @@ const repoCardsContainer = document.getElementById('repo-cards');
 fetch('https://api.github.com/users/Reinhardt-i/repos')
   .then(response => response.json())
   .then(data => {
-    data.forEach(repo => {
+    const topRepos = data.slice(0, 4); // Get the top 4 repositories
+
+    topRepos.forEach(repo => {
       const repoCard = document.createElement('div');
       repoCard.classList.add('repo-card');
 

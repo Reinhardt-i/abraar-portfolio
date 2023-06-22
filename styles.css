@@ -47,9 +47,52 @@ section {
   padding: 40px;
 }
 
+.about-me-content {
+  display: flex;
+  align-items: center;
+}
+
+.about-me-image {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.about-me-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-me-text {
+  flex: 1 1 auto;
+}
+
+.about-me-text h2 {
+  margin-bottom: 20px;
+}
+
+.about-me-text ul {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.about-me-text ul li {
+  margin-bottom: 10px;
+}
+
+.about-me-content::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #2C2C2C;
+  margin-left: 20px;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
 
 h1,
@@ -155,4 +198,107 @@ footer {
   .nav-menu ul.show {
     left: 0;
   }
+}
+
+/* Repository Section */
+#repo-section {
+  padding: 40px;
+}
+
+.repo-container {
+  height: 300px; /* Adjust the height as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 153, 204, 0.1); /* Add a slight green/blue tint to the background */
+}
+
+.repo-container:focus-within {
+  outline: 2px solid #0066ff; /* Change the color as desired */
+}
+
+.repo-scroll {
+  overflow-y: auto; /* Use 'auto' instead of 'scroll' to only show scrollbar when necessary */
+  max-height: 100%; /* Ensure the scrollable content doesn't exceed the container's height */
+}
+
+.repo-card {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.repo-card:last-child {
+  border-bottom: none;
+}
+
+/* Competitive Programming Section */
+#competitive-programming {
+  padding: 40px;
+}
+
+.competitive-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.competitive-link {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+/* Article Section */
+#articles {
+  padding: 40px;
+}
+
+.article-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.article-link {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#competitive-programming,
+#articles {
+  width: 49%; /* Adjust the width as desired */
+}
+
+.container::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: #ccc;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+}
+
+#competitive-programming::before,
+#articles::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
 }
