@@ -45,39 +45,24 @@ header {
 
 section {
   padding: 40px;
-}
-
-.about-me-content {
-  display: flex;
-  align-items: center;
-}
-
-.about-me-image {
-  flex: 0 0 auto;
-  margin-right: 20px;
-}
-
-.about-me-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.about-me-text {
-  flex: 1 1 auto;
-}
-
-.about-me-text h2 {
+  background-color: #F8F8F8;
+  border-radius: 5px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.about-me-text ul {
-  margin-top: 20px;
-  list-style: none;
-}
-
-.about-me-text ul li {
-  margin-bottom: 10px;
+.about-me-content,
+.project-row,
+.tech-stacks-list,
+.repo-container,
+.competitive-box,
+.article-box,
+.contact-box {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -101,18 +86,8 @@ p {
   margin-bottom: 20px;
 }
 
-.project-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
 .project-item img {
   width: 400px;
-}
-
-.project-separator {
-  width: 40px;
 }
 
 .tech-stacks-list {
@@ -125,19 +100,6 @@ p {
 .tech-stacks-list li {
   margin-right: 20px;
   margin-bottom: 10px;
-}
-
-.favorites-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-.favorite-item {
-  width: 48%;
-  padding: 20px;
-  border: 1px solid #EAEAEA;
-  border-radius: 5px;
 }
 
 .contact-details p {
@@ -190,27 +152,5 @@ footer {
 
   .nav-menu ul.show {
     left: 0;
-  }
-
-  .nav-menu ul li.hide {
-    display: none;
-  }
-
-  .about-me-content {
-    flex-direction: column;
-  }
-
-  .about-me-image {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .project-row {
-    flex-direction: column;
-  }
-
-  .project-item img {
-    width: 100%;
-    margin-bottom: 20px;
   }
 }
